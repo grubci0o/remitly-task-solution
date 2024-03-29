@@ -7,23 +7,9 @@ import (
 
 func main() {
 	testdoct := `{
-    "PolicyName": "root",	
-    "PolicyDocument": {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "IamListAccess",
-                "Effect": "Allow",
-                "Action": [
-                    "iam:ListRoles",
-                    "iam:ListUsers"
-                ],
-                "Resource": "*"
-            }
-        ]
-    }
+    "PolicyName": "root"
 }`
-	ap := NewPolicy()
+	ap := AWSPolicy{}
 	err, b := ap.verifyIAM(testdoct)
 	if err != nil {
 		log.Fatal(err)

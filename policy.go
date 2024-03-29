@@ -31,6 +31,10 @@ func (policy *AWSPolicy) parseJson(jsonString string) error {
 }
 
 func (policy *AWSPolicy) verifyIAM(jsonString string) (error, bool) {
+	if !json.Valid([]byte(jsonString)) {
+		return errors.New("invalid json string"), false
+	}
+
 	err := policy.parseJson(jsonString)
 	if err != nil {
 		return err, false

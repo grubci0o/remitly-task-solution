@@ -67,8 +67,8 @@ func TestVerifyIAM(t *testing.T) {
 }`,
 			true}}
 
-	var awsPolicy AWSPolicy
 	for _, tt := range tests {
+		var awsPolicy AWSPolicy
 		t.Run(tt.name, func(t *testing.T) {
 			err, ans := awsPolicy.verifyIAM(tt.jsonInput)
 			if err != nil {
@@ -122,12 +122,12 @@ func TestVerifyIAM_ErrorOnInvalidInput(t *testing.T) {
     }
 }`}, {"missing PolicyDocument field should throw error",
 			`{
-    "PolicyName": "root"
-}`},
-	}
+			"PolicyName": "root"
+		}`,
+		}}
 
-	var awsPolicy AWSPolicy
 	for _, tt := range tests {
+		var awsPolicy AWSPolicy
 		t.Run(tt.name, func(t *testing.T) {
 			err, ans := awsPolicy.verifyIAM(tt.invalidJson)
 			if err == nil {

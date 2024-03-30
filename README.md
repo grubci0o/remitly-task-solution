@@ -8,7 +8,7 @@ Go programming language (should work on any recent version). No external librari
 Clone the repository and cd into it
 ```console
 git clone https://github.com/grubci0o/remitly-task-solution.git
-cd remitly_task
+cd remitly-task-solution
 ```
 
 To run tests type
